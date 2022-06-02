@@ -1,5 +1,9 @@
 ﻿// В двумерном массиве n×k заменить четные элементы на противоположные
-int[,]array = new int[2,10];
+Console.Write("Input the number of strings of array: ");
+int n = int.Parse(Console.ReadLine()??"0");
+Console.Write("Input the number of columns of array: ");
+int k = int.Parse(Console.ReadLine()??"0");
+int[,]array = new int[n,k];
 for (int i = 0; i < array.GetLength(0); i++)
 {
     for (int j = 0; j < array.GetLength(1); j++)
@@ -9,7 +13,7 @@ for (int i = 0; i < array.GetLength(0); i++)
     }
     Console.WriteLine(); 
 }
-
+Console.WriteLine(); 
 for (int i = 0; i < array.GetLength(0); i++)
 {
     for (int j = 0; j < array.GetLength(1); j++)
