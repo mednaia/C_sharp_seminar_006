@@ -15,7 +15,7 @@ void SearchNumberInArray(int[,] array)
 {
     Console.Write("Input the number: ");
     int n = int.Parse(Console.ReadLine()??"0");
-    int check = 0;
+    bool check = false;
     for (int i = 0; i < array.GetLength(0); i++)
     {
         for (int j = 0; j < array.GetLength(1); j++)
@@ -23,12 +23,12 @@ void SearchNumberInArray(int[,] array)
             if(array[i,j] == n)
             {
                 Console.WriteLine($"Number {n} is in the array on [{i},{j}] position.");
-                check=1;
+                check=true;
             }
                 
         }
     }
-    if (check==0) Console.WriteLine($"Number {n} isn't in the array.");
+    if (check == false) Console.WriteLine($"Number {n} isn't in the array.");
 }
 
 void PrintArray(int[,] array)
