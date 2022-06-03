@@ -47,7 +47,10 @@ PrintMatrix(matrix);
 Console.Write("Enter value to find in matrix: ");
 int value = int.Parse(Console.ReadLine() ?? "0");
 (int,int)? position = IndexOf(matrix,value);
-if(position==null)
-    Console.Write("There is no value in matrix.");
-else
-    Console.Write($"Position of element: {position.Value.Item1}  {position.Value.Item2}.");
+// if(position==null)
+//     Console.Write("There is no value in matrix.");
+// else
+//     Console.Write($"Position of element: {position.Value.Item1}  {position.Value.Item2}.");
+Console.Write(position !=null 
+? $"Position of element: {position.Value.Item1}  {position.Value.Item2}." 
+: "There is no value in matrix.");
