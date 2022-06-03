@@ -17,12 +17,20 @@ int[,] CreateMatrix(int rows, int columns, int minValue, int maxValue)
             matrix[i,j] = random.Next(minValue,maxValue);
     return matrix;
 }
-int[]? IndexOf(int[,] matrix, int value)
+// int[]? IndexOf(int[,] matrix, int value)
+// {
+//     for(int i=0; i<matrix.GetLength(0);i++)
+//         for(int j=0; j<matrix.GetLength(0);j++)
+//             if(matrix[i,j]==value)
+//                 return new int[2] {i,j};
+//     return null;
+// }
+(int,int)? IndexOf(int[,] matrix, int value)
 {
     for(int i=0; i<matrix.GetLength(0);i++)
         for(int j=0; j<matrix.GetLength(0);j++)
             if(matrix[i,j]==value)
-                return new int[2] {i,j};
+                return (i,j);
     return null;
 }
 Console.Write("Enter amount of matrix rows: ");
@@ -38,8 +46,8 @@ Console.WriteLine("Your matrix: ");
 PrintMatrix(matrix);
 Console.Write("Enter value to find in matrix: ");
 int value = int.Parse(Console.ReadLine() ?? "0");
-int[]? position = IndexOf(matrix,value);
+(int,int)? position = IndexOf(matrix,value);
 if(position==null)
     Console.Write("There is no value in matrix.");
 else
-    Console.Write($"Position of element: {position[0]}  {position[1]}.");
+    Console.Write($"Position of element: {position.Value.Item1}  {position.Value.Item2}.");
